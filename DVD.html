@@ -1,0 +1,56 @@
+<<!DOCTYPE html>
+<html>
+<body">
+	<canvas id="DVD"> </canvas>
+
+	<script>
+		let canvas  = document.getElementById('DVD');
+		let context = canvas.getContext("2d");
+
+		let c_X = 200;
+		let c_Y = 200;
+		let radius = 60;
+		let c_X_speed = 2;
+		let c_Y_speed = 2;
+
+		
+		canvas.width  = window.innerWidth;
+		canvas.height = window.innerHeight;
+		color = 'blue';
+
+		function draw() {
+			context.beginPath();
+			const dvd = new Path2D();
+			dvd.arc(c_X,c_Y,radius,0,Math.PI * 2);
+			context.closePath(dvd);
+			context.fillStyle = color;
+			context.fill(dvd);
+		}
+
+		function dvd() {
+			context.fillRect(0,0, canvas.width, canvas.height, 'black');
+  			draw();
+  			c_X += c_X_speed;
+  			c_Y += c_Y_speed;
+
+  			context.font = ' bold 53px serif';
+  			context.fillStyle = 'black';
+  			context.textBaseline = 'middle'
+  			context.textAlign = 'center';
+			context.fillText('DVD', c_X - c_X_speed, c_Y - c_Y_speed);
+
+			if ((c_Y - radius < 0) || (c_Y + radius > canvas.height)) {
+  					c_Y_speed = -c_Y_speed;	
+  				}
+
+  			if ((c_X - radius < 0) || (c_X + radius > canvas.width)) {
+  					c_X_speed = -c_X_speed;
+  				}
+
+ 	
+		}
+
+		setInterval(dvd, 17);
+	</script>
+</body>
+</html>
