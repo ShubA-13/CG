@@ -1,0 +1,9 @@
+def GetNormal(xa, ya, za, xb, yb, zb, xc, yc, zc):
+
+    ny = (zb - za) * (xc - xa) - (zc - za) * (xb - xa)
+    nz = -((yb - ya) * (xc - xa) - (yc - ya) * (xb - xa))
+    nx = -(nz * (zb - za) + ny * (yb - ya)) / (xb - xa)
+
+    return nx, ny, nz
+
+print(GetNormal(0, 0, 5, 18, 27, 0, 15, 17, 0))
