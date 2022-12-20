@@ -1,0 +1,10 @@
+def PointInFlat(xa, ya, za, xb, yb, zb, xc, yc, zc, x, y):
+    First = (xa - x) * (yb - ya) - (xb - xa) * (ya - y)
+    Second = (xb - x) * (yc - yb) - (xc - xb) * (yb - y)
+    Third = (xc - x) * (ya - yc) - (xa - xc) * (yc - y)
+    if (First < 0) and (Second < 0) and (Third < 0):
+        return True
+    else:
+        return False
+
+print(PointInFlat(0, 0, 5, 18, 27, 0, 15, 17, 0, 2, 29))
