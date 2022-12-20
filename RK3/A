@@ -9,5 +9,4 @@ def RotationMatrix(x, y, alpha):
     A = A.dot(M_negative)
     return A
 
-
 print(RotationMatrix(5,5,0.5))
