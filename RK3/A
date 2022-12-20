@@ -1,0 +1,13 @@
+import numpy as np
+import math
+
+def RotationMatrix(x, y, alpha):
+    R = np.array([[math.cos(alpha), math.sin(-1*alpha), 0], [math.sin(alpha), math.cos(alpha), 0], [0, 0, 1]])
+    M_positive = np.array([[1, 0, x], [0, 1, y], [0, 0, 1]])
+    M_negative = np.array([[1, 0, -1*x], [0, 1, -1*y], [0, 0, 1]])
+    A = M_positive.dot(R)
+    A = A.dot(M_negative)
+    return A
+
+
+print(RotationMatrix(5,5,0.5))
